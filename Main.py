@@ -4,9 +4,12 @@ from ReportWriter import ReportWriter
 dao = DAO()
 reportWriter = ReportWriter()
 
-result = dao.getRentalsInStationsAsJson()
-print(result)
-reportWriter.replace_template_variable('{RENTALS_DATA_VAR}', result)
+rentalsInStation = dao.getRentalsInStationsAsJson()
+rentalsHoursInDays = dao.getRentalInHoursForIndividualDaysAsJson()
+
+reportWriter.replace_template_variable('{RENTALS_DATA_VAR}', rentalsInStation)
+reportWriter.replace_template_variable('{RENTALS_HOURS_VAR}', rentalsHoursInDays)
+
 reportWriter.write()
 
 

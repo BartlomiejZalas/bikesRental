@@ -10,10 +10,20 @@ class DAO:
         self.connection = DatabaseConnection('DESKTOP-75UCJQJ', 'DWProject')
 
     def getRentalsInStationsAsJson(self):
+        query = "select StartStationId, Name, count(*) Count from ClassifiedData.StationsTrips " \
+                       "left join ClassifiedData.Stations on StationId = StartStationId " \
+                       "group by StartStationId, Name order by StartStationId"
+        return self.get_json_for_query(query)
+
+    def getRentalInHoursForIndividualDaysAsJson(self):
+        query = "select count(*) Rentals, " \
+                "'2016-'+ RIGHT('0'+ CAST(StartMonth as varchar), 2) + '-' + RIGHT('0'+ CAST(StartDay as varchar), 2) + ' ' + RIGHT('0'+ CAST(StartHour as varchar), 2) + ':00' [Date] " \
+                "from ClassifiedData.StationsTrips group by StartHour, StartDay, StartMonth order by StartMonth, StartDay, StartHour"
+        return self.get_json_for_query(query)
+
+    def get_json_for_query(self, query):
         cursor = self.connection.get_connection().cursor()
-        cursor.execute("select StartStationId, Name, count(*) Count from ClassifiedData.StationsTrips "
-                       "left join ClassifiedData.Stations on StationId = StartStationId "
-                       "group by StartStationId, Name order by StartStationId")
+        cursor.execute(query)
         rows = [x for x in cursor]
         cols = [x[0] for x in cursor.description]
         results = []
