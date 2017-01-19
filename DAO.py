@@ -31,6 +31,14 @@ class DAO:
                 "left join ClassifiedData.Stations on StationId = StartStationId group by StartStationId, Name, StartHour order by Name, StartHour"
         return self.get_json_for_query(query)
 
+    def getUsersRentalsInHourPerspective(self):
+        query = "select StartHour, count(*) Rentals from ClassifiedData.StationsTrips group by StartHour"
+        return self.get_json_for_query(query)
+
+    def getUsersRentalsInHourPerspectiveNormalized(self):
+        query = "select StartHour, count(*) * 100 / (select count(*) from ClassifiedData.StationsTrips)[Percentage] from ClassifiedData.StationsTrips group by StartHour"
+        return self.get_json_for_query(query)
+
     def get_json_for_query(self, query):
         cursor = self.connection.get_connection().cursor()
         cursor.execute(query)
