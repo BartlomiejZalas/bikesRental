@@ -39,6 +39,14 @@ class DAO:
         query = "select StartHour, count(*) * 100 / (select count(*) from ClassifiedData.StationsTrips)[Percentage] from ClassifiedData.StationsTrips group by StartHour"
         return self.get_json_for_query(query)
 
+    def getTrafficFlowBetweenStations(self):
+        query = "select StartStationId, EndStationId, count(EndStationId) TrafficFlow from ClassifiedData.StationsTrips group by StartStationId, EndStationId order by StartStationId"
+        return self.get_json_for_query(query)
+
+    def getStations(self):
+        query = "select StationId, Name, [Location].Lat Lat,[Location].Long Long from ClassifiedData.Stations"
+        return self.get_json_for_query(query)
+
     def get_json_for_query(self, query):
         cursor = self.connection.get_connection().cursor()
         cursor.execute(query)

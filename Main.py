@@ -10,6 +10,8 @@ stationProfileTotalRentalsInHourPerspective = dao.getRentalsOfStationsInHoursPer
 stationProfileUniqueRentalsHourPerspective = dao.getRentalsOfUniqueUsersOfStationsInHoursPerspective()
 usersProfile = dao.getUsersRentalsInHourPerspective()
 usersProfileNormalized = dao.getUsersRentalsInHourPerspectiveNormalized()
+trafficFlow = dao.getTrafficFlowBetweenStations()
+stations = dao.getStations()
 
 reportWriter.replace_template_variable('{RENTALS_DATA_VAR}', rentalsInStation)
 reportWriter.replace_template_variable('{RENTALS_HOURS_VAR}', rentalsHoursInDays)
@@ -17,6 +19,8 @@ reportWriter.replace_template_variable('{RENTALS_STATION_TOTAL_VAR}', stationPro
 reportWriter.replace_template_variable('{RENTALS_STATION_UNIQUE_VAR}', stationProfileUniqueRentalsHourPerspective)
 reportWriter.replace_template_variable('{RENTALS_USERS}', usersProfile)
 reportWriter.replace_template_variable('{RENTALS_USERS_NORMALIZED}', usersProfileNormalized)
+reportWriter.replace_template_variable('{RENTALS_TRAFFIC_FLOW}', trafficFlow)
+reportWriter.replace_template_variable('{STATIONS}', stations)
 
 reportWriter.write()
 
