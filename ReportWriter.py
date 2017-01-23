@@ -1,6 +1,6 @@
 class ReportWriter:
-    templatePath = 'resources/reportTemplate.html'
-    targetPath = 'target/report.html'
+    templatePath = 'resources/data_template.js'
+    targetPath = 'target/data.js'
 
     def __init__(self):
         file = open(self.templatePath, 'r')
