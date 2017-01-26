@@ -8,6 +8,7 @@
     <title>Starter Template for Bootstrap</title>
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="data.js"></script>
@@ -54,48 +55,64 @@
 
 <div class="container">
 
-    <div class="container" style="width: 1000px; height: 600px;">
-    <h2>Ilość wypożyczeń od stacji</h2>
-    <div>
-        <canvas id="canvas"></canvas>
-        <br>
-        <h2>Ilość wypożyczeń użytkowników/godziny</h2>
-        <canvas id="canvas2"></canvas>
-        <br>
-        <br>
-        <h2>Ilość wypożyczeń użytkowników w stacji/godziny</h2>
-        <br>
-        <form id="myForm">
-            <select id="selectNumber" onchange="output(this)">
-                <option>Choose an hour</option>
-            </select>
-        </form>
-        <canvas id="canvas3"></canvas>
-        <br>
-        <h2>Ilość wypożyczeń użytkowników/data</h2>
-        <br>
-        <form id="myForm1">
-            <select id="selectMonth" onchange="output(this)">
-                <option>Choose a month</option>
-            </select>
-            <canvas id="canvas4"></canvas>
-            <br>
-            <br>
-            <h2>Ilość wypożyczeń użytkowników/stacji</h2>
-            <br>
-            <form id="myForm3">
-                <select id="selectStation" onchange="output(this)">
-                    <option>Choose a station</option>
-                </select>
-            </form>
-            <canvas id="canvas5"></canvas>
-            <br>
-            <br>
-        </form>
+    <div class="container">
+        <div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>Ilość wypożyczeń od stacji</h2>
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>Ilość wypożyczeń użytkowników/godziny</h2>
+                    <canvas id="canvas2"></canvas>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>Ilość wypożyczeń użytkowników w stacji/godziny</h2>
+
+                    <form id="myForm">
+                        <select id="selectNumber" onchange="output(this)">
+                            <option>Choose an hour</option>
+                        </select>
+                    </form>
+                    <canvas id="canvas3"></canvas>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>Ilość wypożyczeń użytkowników/data</h2>
+                    <form id="myForm1">
+                        <select id="selectMonth" onchange="output(this)">
+                            <option>Choose a month</option>
+                        </select>
+                    </form>
+                    <canvas id="canvas4"></canvas>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>Ilość wypożyczeń użytkowników/stacji</h2>
+                    <form id="myForm3">
+                        <select id="selectStation" onchange="output(this)">
+                            <option>Choose a station</option>
+                        </select>
+                    </form>
+                    <canvas id="canvas5"></canvas>
+                </div>
+            </div>
+
+
+        </div>
     </div>
-</div>
 
 </div><!-- /.container -->
-    <script src="drawCharts.js"></script>
+<script src="drawCharts.js"></script>
 </body>
 </html>

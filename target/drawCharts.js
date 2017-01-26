@@ -78,7 +78,7 @@ function sortNumber(a, b) {
 var ctx = document.getElementById("canvas").getContext("2d");
 
 var canvas = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: chartjsLabels,
         datasets: [
