@@ -21,44 +21,46 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">Bike Rentals in Wrocław</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Dropdown <span class="caret"></span></a>
+                       aria-expanded="false">Charts <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#renalsStations">Rentals/Stations</a></li>
+                        <li><a href="#rentalsHour">Rentals/Hour</a></li>
+                        <li><a href="#rentalsStationsHours">Rentals/Stations in Hours</a></li>
+                        <li><a href="#rentalsDayMonth">Rentals/Day in Months</a></li>
+                        <li><a href="#rentalsHourStations">Rentals/Hour in Stations</a></li>
                     </ul>
                 </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
 <div class="container">
+    <div class="row">
+        <div class="col-md-12">
 
-    <div class="container">
-        <div>
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <a name="about"></a>
+                    <h2>About</h2>
+                    <p class="text-center">
+                        <img src="../resources/pwr-logo.gif" alt="logo"/>
+                    </p>
+                    <p class="text-center">
+                        Data warehauses project about bike rentals in Wrocław.
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a name="renalsStations"></a>
                     <h2>Ilość wypożyczeń od stacji</h2>
                     <canvas id="canvas"></canvas>
                 </div>
@@ -66,6 +68,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <a name="rentalsHour"></a>
                     <h2>Ilość wypożyczeń użytkowników/godziny</h2>
                     <canvas id="canvas2"></canvas>
                 </div>
@@ -73,8 +76,8 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <a name="rentalsStationsHours"></a>
                     <h2>Ilość wypożyczeń użytkowników w stacji/godziny</h2>
-
                     <form id="myForm">
                         <select id="selectNumber" onchange="output(this)">
                             <option>Choose an hour</option>
@@ -86,6 +89,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <a name="rentalsDayMonth"></a>
                     <h2>Ilość wypożyczeń użytkowników/data</h2>
                     <form id="myForm1">
                         <select id="selectMonth" onchange="output(this)">
@@ -98,6 +102,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <a name="rentalsHourStations"></a>
                     <h2>Ilość wypożyczeń użytkowników/stacji</h2>
                     <form id="myForm3">
                         <select id="selectStation" onchange="output(this)">
@@ -107,12 +112,10 @@
                     <canvas id="canvas5"></canvas>
                 </div>
             </div>
-
-
         </div>
     </div>
+</div>
 
-</div><!-- /.container -->
 <script src="drawCharts.js"></script>
 </body>
 </html>
