@@ -9,3 +9,8 @@ h2{
     border-bottom: 1px solid #EEE;
     padding-bottom: 10px;
 }
+
+.form-control {
+    width: 50%;
+    display: inline;
+}
