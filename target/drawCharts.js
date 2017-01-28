@@ -49,8 +49,7 @@ var days = [];
 var dayNumbers = [];
 var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 var months = [];
-var monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"];
+var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 for (var i = 0; i < rentalsHoursInDays.length; i++) {
     rentalsHoursInDaysData.push(rentalsHoursInDays[i].Rentals);
@@ -80,9 +79,9 @@ var ctx = document.getElementById("canvas").getContext("2d");
 
 var canvas = new Chart(ctx, {
     type: 'bar',
-
     data: {
         labels: chartjsLabels,
+        showXLabels: 74,
         datasets: [
             {
                 fillColor: "rgba(20,80,220,0.5)",
@@ -237,20 +236,6 @@ for (var i = 0; i < uniqueDates.length; i++) {
     select2.add(el2);
 }
 
-/*var select21 = document.getElementById("selectDay");
- var options21 = days;
-
-
- for(var i = 0; i < uniqueDays.length; i++) {
- var opt21 = uniqueDays[i];
- var el21 = document.createElement("option");
- el21.text = opt21;
- el21.value = opt21;
- select21.add(el21);
- }
-
- select21.addEventListener('change', function() {updateChart2() });*/
-
 select2.addEventListener('change', function () {
     updateChart2()
 });
@@ -262,7 +247,6 @@ function updateChart2() {
     var stationRentalDaysTemp = [];
 
     var determineMonth = selectMonth.options[selectMonth.selectedIndex].innerHTML;
-    /*var determineDays = selectDay.options[selectDay.selectedIndex].innerHTML;*/
 
     for (var i = 0; i < months.length; i++) {
         if (determineMonth == months[i]) {
