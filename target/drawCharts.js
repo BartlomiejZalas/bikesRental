@@ -9,6 +9,7 @@ var rentalsHoursInDaysData = [];
 var rentalsHoursInDaysLabels = [];
 
 Chart.defaults.global.legend.display = false;
+
 /* Il. wypo�ycze� od stacji */
 
 for (var i = 0; i < stationsRentalsData.length; i++) {
@@ -79,29 +80,13 @@ var ctx = document.getElementById("canvas").getContext("2d");
 
 var canvas = new Chart(ctx, {
     type: 'bar',
+
     data: {
         labels: chartjsLabels,
         datasets: [
             {
-                fillColor: "rgba(220,280,220,0.5)",
-                strokeColor: "rgba(220,220,220,1)",
-                backgroundColor: "rgba(153,255,51,0.4)",
-                data: chartjsData
-            }]
-    }
-});
-
-var ctx2 = document.getElementById("canvas2").getContext("2d");
-
-var canvas2 = new Chart(ctx2, {
-    type: 'bar',
-    data: {
-        labels: userRentalsHours,
-        datasets: [
-            {
-                fillColor: "rgba(220,280,220,0.5)",
-                strokeColor: "rgba(220,220,220,1)",
-                backgroundColor: "rgba(153,255,51,0.4)",
+                fillColor: "rgba(20,80,220,0.5)",
+                strokeColor: "rgba(20,80,220,1)",
                 fill: false,
                 lineTension: 0.1,
                 backgroundColor: "rgba(75,192,192,0.4)",
@@ -119,6 +104,22 @@ var canvas2 = new Chart(ctx2, {
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
+                data: chartjsData
+            }],
+    }
+});
+
+var ctx2 = document.getElementById("canvas2").getContext("2d");
+
+var canvas2 = new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels: userRentalsHours,
+        datasets: [
+            {
+                fillColor: "rgba(220,280,220,0.5)",
+                strokeColor: "rgba(220,220,220,1)",
+                backgroundColor: "rgba(153,255,51,0.4)",
                 data: userRentalsData
             }]
     }
