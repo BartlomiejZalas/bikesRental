@@ -27,8 +27,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="#about">About</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Charts <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Charts <span
+                            class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#renalsStations">Rentals/Stations</a></li>
                         <li><a href="#rentalsHour">Rentals/Hour</a></li>
@@ -37,6 +37,7 @@
                         <li><a href="#rentalsHourStations">Rentals/Hour in Stations</a></li>
                     </ul>
                 </li>
+                <li><a href="#stationsTrafficMap">Stations Traffic Map</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -112,10 +113,24 @@
                     <canvas id="canvas5"></canvas>
                 </div>
             </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a name="stationsTrafficMap"></a>
+                    <h2>Stations Traffic Map</h2>
+                    <div id="trafficMap"></div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
 
+<script src="trafficMap.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyeNspSpe8qvRdy_QCu3RoslPTiuGyIss&callback=initMap"></script>
 <script src="drawCharts.js"></script>
+
 </body>
 </html>
