@@ -40,7 +40,9 @@ class DAO:
         return self.get_json_for_query(query)
 
     def getTrafficFlowBetweenStations(self):
-        query = "select StartStationId, EndStationId, count(EndStationId) TrafficFlow from ClassifiedData.StationsTrips group by StartStationId, EndStationId order by StartStationId"
+        query = "select StartStationId, EndStationId, count(EndStationId) TrafficFlow," \
+                "(count(EndStationId)*100)/(select count(*) from  ClassifiedData.StationsTrips t where st.StartStationId = t.StartStationId) NormalizedTrafficFlow "\
+                " from ClassifiedData.StationsTrips st group by StartStationId, EndStationId order by StartStationId"
         return self.get_json_for_query(query)
 
     def getStations(self):

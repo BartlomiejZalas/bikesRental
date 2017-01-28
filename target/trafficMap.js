@@ -53,7 +53,8 @@ function createArrow(station, endStation) {
 
 function addTrafficLinesInfoOnClick(trafficFlowLine, station, endStation, trafficFlow, map) {
     google.maps.event.addListener(trafficFlowLine, 'click', function (event) {
-        var content = '<b>From:</b> ' + station.Name + '<br><b>To:</b> ' + endStation.Name + '</br><b>Traffic:</b> ' + trafficFlow.TrafficFlow;
+        var content = '<b>From:</b> ' + station.Name + '<br><b>To:</b> ' + endStation.Name + '</br>' +
+            '<b>Traffic:</b> ' + trafficFlow.TrafficFlow + ' ('+trafficFlow.NormalizedTrafficFlow+'%)';
         infoWindow.setContent(content);
         infoWindow.setPosition(event.latLng);
         infoWindow.open(map);
