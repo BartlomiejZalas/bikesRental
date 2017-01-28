@@ -8,7 +8,7 @@ var stationRentalsHours = [];
 var rentalsHoursInDaysData = [];
 var rentalsHoursInDaysLabels = [];
 
-
+Chart.defaults.global.legend.display = false;
 /* Il. wypo�ycze� od stacji */
 
 for (var i = 0; i < stationsRentalsData.length; i++) {
@@ -83,12 +83,10 @@ var canvas = new Chart(ctx, {
         labels: chartjsLabels,
         datasets: [
             {
-                label: 'Wypożyczenia',
                 fillColor: "rgba(220,280,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
                 backgroundColor: "rgba(153,255,51,0.4)",
                 data: chartjsData
-
             }]
     }
 });
@@ -101,7 +99,6 @@ var canvas2 = new Chart(ctx2, {
         labels: userRentalsHours,
         datasets: [
             {
-                label: 'Wypożyczenia',
                 fillColor: "rgba(220,280,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
                 backgroundColor: "rgba(153,255,51,0.4)",
@@ -135,7 +132,6 @@ var canvas3 = new Chart(ctx3, {
         labels: chartjsLabels,
         datasets: [
             {
-                label: 'Wypożyczenia',
                 fillColor: "rgba(20,80,220,0.5)",
                 strokeColor: "rgba(20,80,220,1)",
                 backgroundColor: "rgba(53,25,51,0.4)",
@@ -152,7 +148,6 @@ var canvas4 = new Chart(ctx4, {
         labels: uniqueDays,
         datasets: [
             {
-                label: 'Wypożyczenia',
                 fillColor: "rgba(280,80,220,0.5)",
                 strokeColor: "rgba(280,80,220,1)",
                 backgroundColor: "rgba(53,255,251,0.4)",
@@ -169,7 +164,6 @@ var canvas5 = new Chart(ctx5, {
         labels: userRentalsHours,
         datasets: [
             {
-                label: 'Wypożyczenia',
                 fillColor: "rgba(120,180,120,0.5)",
                 strokeColor: "rgba(120,120,120,1)",
                 backgroundColor: "rgba(253,155,151,0.4)",
