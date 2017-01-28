@@ -2,6 +2,8 @@ var trafficFlowLines = [];
 
 function initMap() {
     infoWindow = new google.maps.InfoWindow;
+    lineSymbol = {path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW};
+
     var wroclaw = {lat: 51.107885, lng: 17.038538};
     var map = new google.maps.Map(document.getElementById('trafficMap'), {
         zoom: 13,
@@ -31,7 +33,11 @@ function displayFlowsOnClick(marker, station, top5Flows, map) {
                 geodesic: true,
                 strokeColor: '#FF0000',
                 strokeOpacity: 1.0,
-                strokeWeight: 3
+                strokeWeight: 3,
+                icons: [{
+                    icon: lineSymbol,
+                    offset: '100%'
+                }]
             });
             trafficFlowLines[i].setMap(map);
 
@@ -42,7 +48,12 @@ function displayFlowsOnClick(marker, station, top5Flows, map) {
 
 function addTrafficLinesHover(trafficFlowLine, station, endStation, trafficFlow, map) {
     google.maps.event.addListener(trafficFlowLine, 'click', function (event) {
-        infoWindow.setContent('<b>'+station.Name + ' > ' + endStation.Name + '</b><br>Traffic: ' + trafficFlow.TrafficFlow);
+        infoWindow.setContent('<b>' + station.Name + ' > ' + endStation.Name + '</b><br>Traffic: ' + trafficFlow.TrafficFlow);
+        infoWindow.setPosition(event.latLng);
+        infoWindow.open(map);
+    });
+    google.maps.event.addListener(lineSymbol, 'click', function (event) {
+        infoWindow.setContent('<b>' + station.Name + ' > ' + endStation.Name + '</b><br>Traffic: ' + trafficFlow.TrafficFlow);
         infoWindow.setPosition(event.latLng);
         infoWindow.open(map);
     });
@@ -74,7 +85,7 @@ function findFlowFromStation(stationId) {
     var flows = [];
     for (i = 0; i < trafficFlow.length; i++) {
         var flow = trafficFlow[i];
-        if (flow.StartStationId == stationId) {
+        if (flow.StartStationId == stationId && flow.EndStationId != stationId) {
             flows.push(flow)
         }
     }
