@@ -1,7 +1,8 @@
 from DAO import DAO
-from ReportWriter import ReportDataWriter
+from ReportDataWriter import ReportDataWriter
+from DatabaseConnection import DatabaseConnection
 
-dao = DAO()
+dao = DAO(DatabaseConnection('DESKTOP-75UCJQJ', 'DWProject'))
 reportDataWriter = ReportDataWriter()
 
 rentalsInStation = dao.getRentalsInStationsAsJson()
@@ -23,5 +24,3 @@ reportDataWriter.replace_template_variable('{RENTALS_TRAFFIC_FLOW}', trafficFlow
 reportDataWriter.replace_template_variable('{STATIONS}', stations)
 
 reportDataWriter.write()
-
-

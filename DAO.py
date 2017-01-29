@@ -6,8 +6,8 @@ from DatabaseConnection import DatabaseConnection
 
 
 class DAO:
-    def __init__(self):
-        self.connection = DatabaseConnection('DESKTOP-75UCJQJ', 'DWProject')
+    def __init__(self, databaseConnection):
+        self.connection = databaseConnection
 
     def getRentalsInStationsAsJson(self):
         query = "select StartStationId, Name, count(*) Count from ClassifiedData.StationsTrips " \
