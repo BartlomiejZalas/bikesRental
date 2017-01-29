@@ -1,8 +1,8 @@
 from DAO import DAO
-from ReportWriter import ReportWriter
+from ReportWriter import ReportDataWriter
 
 dao = DAO()
-reportWriter = ReportWriter()
+reportDataWriter = ReportDataWriter()
 
 rentalsInStation = dao.getRentalsInStationsAsJson()
 rentalsHoursInDays = dao.getRentalInHoursForIndividualDaysAsJson()
@@ -13,15 +13,15 @@ usersProfileNormalized = dao.getUsersRentalsInHourPerspectiveNormalized()
 trafficFlow = dao.getTrafficFlowBetweenStations()
 stations = dao.getStations()
 
-reportWriter.replace_template_variable('{RENTALS_DATA_VAR}', rentalsInStation)
-reportWriter.replace_template_variable('{RENTALS_HOURS_VAR}', rentalsHoursInDays)
-reportWriter.replace_template_variable('{RENTALS_STATION_TOTAL_VAR}', stationProfileTotalRentalsInHourPerspective)
-reportWriter.replace_template_variable('{RENTALS_STATION_UNIQUE_VAR}', stationProfileUniqueRentalsHourPerspective)
-reportWriter.replace_template_variable('{RENTALS_USERS}', usersProfile)
-reportWriter.replace_template_variable('{RENTALS_USERS_NORMALIZED}', usersProfileNormalized)
-reportWriter.replace_template_variable('{RENTALS_TRAFFIC_FLOW}', trafficFlow)
-reportWriter.replace_template_variable('{STATIONS}', stations)
+reportDataWriter.replace_template_variable('{RENTALS_DATA_VAR}', rentalsInStation)
+reportDataWriter.replace_template_variable('{RENTALS_HOURS_VAR}', rentalsHoursInDays)
+reportDataWriter.replace_template_variable('{RENTALS_STATION_TOTAL_VAR}', stationProfileTotalRentalsInHourPerspective)
+reportDataWriter.replace_template_variable('{RENTALS_STATION_UNIQUE_VAR}', stationProfileUniqueRentalsHourPerspective)
+reportDataWriter.replace_template_variable('{RENTALS_USERS}', usersProfile)
+reportDataWriter.replace_template_variable('{RENTALS_USERS_NORMALIZED}', usersProfileNormalized)
+reportDataWriter.replace_template_variable('{RENTALS_TRAFFIC_FLOW}', trafficFlow)
+reportDataWriter.replace_template_variable('{STATIONS}', stations)
 
-reportWriter.write()
+reportDataWriter.write()
 
 

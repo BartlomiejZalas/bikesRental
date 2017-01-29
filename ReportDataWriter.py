@@ -1,4 +1,4 @@
-class ReportWriter:
+class ReportDataWriter:
     templatePath = 'resources/data_template.js'
     targetPath = 'target/data.js'
 
