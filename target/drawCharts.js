@@ -127,7 +127,7 @@ var canvas2 = new Chart(ctx2, {
 var ctx3 = document.getElementById("canvas3").getContext("2d");
 
 var canvas3 = new Chart(ctx3, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: chartjsLabels,
         datasets: [
@@ -204,12 +204,12 @@ function updateChart() {
     }
 
     canvas3 = new Chart(ctx3, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: stationRentalName,
             datasets: [
                 {
-                    label: 'Wypożyczenia',
+                    label: 'Rentals',
                     fillColor: "rgba(20,80,220,0.5)",
                     strokeColor: "rgba(20,80,220,1)",
                     backgroundColor: "rgba(53,25,51,0.4)",
@@ -279,7 +279,7 @@ function updateChart2() {
             labels: stationRentalDaysTemp,
             datasets: [
                 {
-                    label: 'Wypożyczenia',
+                    label: 'Rentals',
                     fillColor: "rgba(280,80,220,0.5)",
                     strokeColor: "rgba(280,80,220,1)",
                     backgroundColor: "rgba(53,255,251,0.4)",
@@ -326,7 +326,7 @@ function updateChart3() {
             labels: stationRentalsHoursTemp,
             datasets: [
                 {
-                    label: 'Wypożyczenia',
+                    label: 'Rentals',
                     fillColor: "rgba(120,180,120,0.5)",
                     strokeColor: "rgba(120,120,120,1)",
                     backgroundColor: "rgba(253,155,151,0.4)",
